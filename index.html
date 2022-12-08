@@ -7,6 +7,15 @@
     <title>헤레디움 테스트</title>
     <script type="text/javascript">
         window.onload = function(){
+            
+            document.getElementById('getWifiInfo').onclick = function(e){
+                alert('getWifiInfo');
+                let data = window.webkit.messageHandlers.getWifiInfo.postMessage(sendData);
+                alert('data' + data);
+                return false;
+            }
+            
+            
             document.getElementById('send').onclick = function(e){
 
                 let input = document.getElementById("name")
@@ -16,7 +25,7 @@
                 // input.setAttribute("name", "");
                 return false;
             }
-
+            
             document.getElementById('search').onclick = function(e){
 
                 // let input = document.getElementById("searchTerm")
@@ -26,16 +35,6 @@
                 // input.setAttribute("name", "");
                 return false;
             }
-        }
-
-        // js 에서 안드로이드 메소드 호출
-        function showAndroidToast() {
-            
-            let androidMessage = document.getElementById("androidMessage")
-            console.log('showAndroidToast :', androidMessage);
-            // Android 가 브릿지 이름 
-            Android.showToast(androidMessage.value);
-            androidMessage.value = "";
         }
 
         // js 에서 ios 호출할 메소드
@@ -67,7 +66,12 @@
         
         <h2 class="">빈칸을 채우시고 알림 띄우기를 클릭하시면 알림이 띄워집니다.</h2>
         <p></p>
-        <h2 class="">네이티브에서 호출할 JS 함수 이름 showAlert(메세지)</h2>
+         <h3 class="">getWifiInfo</h3>
+        <form method="post">
+            <input class="btn-indigo" type="submit" name="send" id="getWifiInfo" value="getWifiInfo" />
+        </form>
+        
+        <h3 class="">네이티브에서 호출할 JS 함수 이름 showAlert(메세지)</h3>
         <form method="post">
             <input type="text" name="name" id="name" />
             <input class="btn-indigo" type="submit" name="send" id="send" value="알림 띄우기" />
@@ -75,18 +79,13 @@
 
         <p></p>
 
-        <h2 class="">JS에서 안드로이드 네이티브 메소드 호출 - showAndroidToast</h2>
-        <input type="text" placeholder="전달할 내용을 입력하세요" name="androidMessage" id="androidMessage" />
-        <button onclick="showAndroidToast();">안드로이드 네이티브로 전달</button>
-
-
-        <h2 class="">JS에서 iOS 네이티브로 전달</h2>
+        <h3 class="">JS에서 iOS 네이티브로 전달</h3>
 
         <input type="text" placeholder="전달할 내용을 입력하세요" name="messageToSend" id="messageToSend" />
         <button onclick="jsToNativeEventCall();">네이티브로 전달</button>
         
 
-        <h2 class="">네이티브에서 입력한 내용</h2>
+        <h3 class="">네이티브에서 입력한 내용</h3>
         <input name="native_input" id="native_input" value="" />
     </div>
 </body>
