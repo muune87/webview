@@ -23,6 +23,13 @@
             // console.log('getWifiInfoResult : $message');
             //alert("getWifiInfoResult")
             let nativeInput = document.getElementById("native_input")
+            
+            if(message == ""){
+                alert("앱 접근 권한이 없음");
+            }
+            if(message == "null"){
+                alert("설정된 와이파이가 없음");
+            }
             nativeInput.value = message;
             
         }
