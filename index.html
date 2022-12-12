@@ -11,7 +11,10 @@
             document.getElementById('getWifiInfo').onclick = function(e){
                 Log("aaa");
                 alert('getWifiInfo');
-                window.webkit.messageHandlers.bridge.postMessage();
+                if(window.webkit){
+                    
+                    window.webkit.messageHandlers.bridge.postMessage();
+                }
                 return false;
             }
             
