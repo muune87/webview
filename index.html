@@ -10,7 +10,7 @@
         window.onload = function(){
             document.getElementById('getWifiInfo').onclick = function(e){
                 alert('getWifiInfo');
-                window.webkit.messageHandlers.getWifiInfo.postMessage();
+                window.webkit.messageHandlers.getWifiInfo.postMessage({"aa":"aa"});
                 return false;
             }
         }
