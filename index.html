@@ -11,9 +11,9 @@
             document.getElementById('getWifiInfo').onclick = function(e){
                 Log("aaa");
                 alert('getWifiInfo');
-                if(window.webkit){
+                //if(window.webkit){
                     window.webkit.messageHandlers.getWifiInfo.postMessage();
-                }
+                //}
                 return false;
             }
             
