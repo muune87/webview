@@ -14,49 +14,6 @@
                 return false;
             }
             
-            
-            document.getElementById('send').onclick = function(e){
-
-                let input = document.getElementById("name")
-
-                alert(input.value);
-                input.value = "";
-                // input.setAttribute("name", "");
-                return false;
-            }
-            
-            document.getElementById('search').onclick = function(e){
-
-                // let input = document.getElementById("searchTerm")
-                
-                // // alert(input.value);
-                // input.value = "";
-                // input.setAttribute("name", "");
-                return false;
-            }
-            
-        }
-
-        // js 에서 ios 호출할 메소드
-        function jsToNativeEventCall() {
-            // console.log('jsToNativeEventCall : $message');
-            let messageToSend = document.getElementById("messageToSend")
-            const sendData = { message: messageToSend.value };
-            // const sendData = { message: "messageToSend"};
-            // callbackHandler 가 브릿지 이름 
-            try{
-                window.webkit.messageHandlers.callbackHandler.postMessage(sendData);
-                messageToSend.value = "";
-            } catch (err) {
-                alert(err);
-            }
-        }
-
-        // 네이티브 에서 호출할 메소드
-        function nativeToJsEventCall(message){
-            // console.log('nativeToJsEventCall : $message');
-            let nativeInput = document.getElementById("native_input")
-            nativeInput.value = message;
         }
     </script>
 </head>
@@ -69,23 +26,7 @@
          <h3 class="">getWifiInfo</h3>
          <input class="btn-indigo" type="submit" name="send" id="getWifiInfo" value="getWifiInfo" />
         
-        
-        <h3 class="">네이티브에서 호출할 JS 함수 이름 showAlert(메세지)</h3>
-        <form method="post">
-            <input type="text" name="name" id="name" />
-            <input class="btn-indigo" type="submit" name="send" id="send" value="알림 띄우기" />
-        </form>
-
-        <p></p>
-
-        <h3 class="">JS에서 iOS 네이티브로 전달</h3>
-
-        <input type="text" placeholder="전달할 내용을 입력하세요" name="messageToSend" id="messageToSend" />
-        <button onclick="jsToNativeEventCall();">네이티브로 전달</button>
-        
-
-        <h3 class="">네이티브에서 입력한 내용</h3>
-        <input name="native_input" id="native_input" value="" />
+  
     </div>
 </body>
 </html>
