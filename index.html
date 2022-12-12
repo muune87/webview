@@ -8,18 +8,11 @@
     <script type="text/javascript">
         alert("22");
         window.onload = function(){
-            
             document.getElementById('getWifiInfo').onclick = function(e){
-                //console.log("aaa");
                 alert('getWifiInfo');
-                const sendData = { message: "aaa" };
-                //if(window.webkit){
-                    window.webkit.messageHandlers.callbackHandler.postMessage(sendData);
-                //}
+                window.webkit.messageHandlers.getWifiInfo.postMessage();
                 return false;
             }
-            
-
         }
         
         // 네이티브 에서 호출할 메소드
