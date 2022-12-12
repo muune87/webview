@@ -12,12 +12,14 @@
                 Log("aaa");
                 alert('getWifiInfo');
                 if(window.webkit){
-                    
-                    window.webkit.messageHandlers.bridge.postMessage();
+                    window.webkit.messageHandlers.getWifiInfo.postMessage();
                 }
                 return false;
             }
             
+            webkit.messageHandlers.getWifiInfo.onMessage = (msg) => {
+                alert('from native:' + msg)
+              }
         }
     </script>
 </head>
