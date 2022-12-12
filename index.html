@@ -35,7 +35,7 @@
                 return false;
             }
             
-            window.webkit.messageHandlers.bridge.getWifiInfo = (msg) => {
+            window.webkit.messageHandlers.bridge.getWifiInfo = function(msg){
                 log('from native:' + msg)
                 }
         }
