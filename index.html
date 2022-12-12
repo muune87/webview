@@ -34,6 +34,10 @@
                 // input.setAttribute("name", "");
                 return false;
             }
+            
+            window.webkit.messageHandlers.bridge.getWifiInfo = (msg) => {
+                log('from native:' + msg)
+                }
         }
 
         // js 에서 ios 호출할 메소드
