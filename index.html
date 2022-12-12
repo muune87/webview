@@ -11,15 +11,22 @@
             document.getElementById('getWifiInfo').onclick = function(e){
                 //console.log("aaa");
                 alert('getWifiInfo');
+                const sendData = { message: "aaa" };
                 //if(window.webkit){
-                    window.webkit.messageHandlers.bridge.getWifiInfo();
+                    window.webkit.messageHandlers.callbackHandler.postMessage(sendData);
                 //}
                 return false;
             }
             
-            webkit.messageHandlers.bridge.getWifiInfo = (msg) => {
-                alert('from native:' + msg)
-              }
+
+        }
+        
+        // 네이티브 에서 호출할 메소드
+        function nativeToJsEventCall(message){
+            // console.log('nativeToJsEventCall : $message');
+            let nativeInput = document.getElementById("native_input")
+            nativeInput.value = message;
+            
         }
     </script>
 </head>
@@ -32,6 +39,8 @@
          <h3 class="">getWifiInfo</h3>
          <input class="btn-indigo" type="submit" name="send" id="getWifiInfo" value="getWifiInfo" />
         
+        <h2 class="">네이티브에서 입력한 내용</h2>
+        <input name="native_input" id="native_input" value="" />
   
     </div>
 </body>
