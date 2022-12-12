@@ -9,15 +9,15 @@
         window.onload = function(){
             
             document.getElementById('getWifiInfo').onclick = function(e){
-                console.log("aaa");
+                //console.log("aaa");
                 alert('getWifiInfo');
                 //if(window.webkit){
-                    window.webkit.messageHandlers.getWifiInfo.postMessage();
+                    window.webkit.messageHandlers.bridge.getWifiInfo();
                 //}
                 return false;
             }
             
-            webkit.messageHandlers.getWifiInfo.onMessage = (msg) => {
+            webkit.messageHandlers.bridge.getWifiInfo = (msg) => {
                 alert('from native:' + msg)
               }
         }
