@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="">
     <title>헤레디움 테스트</title>
     <script type="text/javascript">
-        alert("33");
+        let version = "0.0"
+    
+        alert("version", version);
+        
         window.onload = function(){
             document.getElementById('getWifiInfo').onclick = function(e){
                 alert('getWifiInfo');
-                window.webkit.messageHandlers.getWifiInfo.postMessage({"aa":"aa"});
+                window.webkit.messageHandlers.getWifiInfo.postMessage(version);
                 return false;
             }
         }
