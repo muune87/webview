@@ -32,7 +32,8 @@
             }else if(message == "null"){
                 alert("설정된 와이파이가 없음");
             }else{
-                alert(JSON.parse(message).toString());
+                let result = JSON.parse(message)
+                alert(result.ssid + ", " + result.bssid);
             }
             
             nativeInput.value = message;
