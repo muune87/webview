@@ -26,10 +26,12 @@
             
             if(message == ""){
                 alert("앱 접근 권한이 없음");
-            }
-            if(message == "null"){
+            }else if(message == "null"){
                 alert("설정된 와이파이가 없음");
+            }else{
+                alert(JSON.parse(message));
             }
+            
             nativeInput.value = message;
             
         }
