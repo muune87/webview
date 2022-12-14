@@ -6,16 +6,20 @@
     <link rel="stylesheet" href="">
     <title>헤레디움 테스트</title>
     <script type="text/javascript">
-        let version = "0.4"
+        const VERSION = "0.4"
     
         alert("version : " + version);
         
         window.onload = function(){
             document.getElementById('getWifiInfo').onclick = function(e){
                 //alert('getWifiInfo');
-                window.webkit.messageHandlers.getWifiInfo.postMessage(version);
+                window.webkit.messageHandlers.getWifiInfo.postMessage(VERSION);
                 return false;
             }
+            
+            let versionInput = document.getElementById("version_input")
+            versionInput.value = VERSION;
+            
         }
         
         // 네이티브 에서 호출할 메소드
@@ -48,7 +52,9 @@
 
 <body>
     <div >
-        <p></p>
+        <p>version</p>
+        <input name="version_input" id="version_input" value=""/>
+  
          <h3 class="">getWifiInfo</h3>
          <input class="btn-indigo" type="submit" name="send" id="getWifiInfo" value="getWifiInfo" />
         
