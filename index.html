@@ -6,17 +6,21 @@
     <link rel="stylesheet" href="">
     <title>헤레디움 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.3"
+        const VERSION = "1.4"
     
         //alert("VERSION : " + VERSION);
         
         window.onload = function(){
             document.getElementById('getWifiInfo').onclick = function(e){
-                //alert('getWifiInfo');
-                //window.webkit.messageHandlers.getWifiInfo.postMessage(VERSION);
+                window.webkit.messageHandlers.getWifiInfo.postMessage(VERSION);
+                return false;
+            }
+            
+            document.getElementById('getWifiInfo2').onclick = function(e){
                 window.heredium.getWifiInfo();
                 return false;
             }
+            
             
             let versionInput = document.getElementById("version_input")
             versionInput.value = VERSION;       
@@ -56,8 +60,12 @@
         <p>version</p>
         <input name="version_input" id="version_input" value=""/>
   
-         <h3 class="">getWifiInfo</h3>
+         <h3 class="">getWifiInfo(ios)</h3>
          <input class="btn-indigo" type="submit" name="send" id="getWifiInfo" value="getWifiInfo" />
+        
+        
+         <h3 class="">getWifiInfo(android)</h3>
+         <input class="btn-indigo" type="submit" name="send" id="getWifiInfo2" value="getWifiInfo" />
         
         <h2 class="">네이티브에서 입력한 내용</h2>
         <input name="native_input" id="native_input" value="" style="width:100%;"/>
