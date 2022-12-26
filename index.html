@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="">
     <title>헤레디움 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.2"
+        const VERSION = "1.3"
     
         //alert("VERSION : " + VERSION);
         
         window.onload = function(){
             document.getElementById('getWifiInfo').onclick = function(e){
                 //alert('getWifiInfo');
-                window.webkit.messageHandlers.getWifiInfo.postMessage(VERSION);
+                //window.webkit.messageHandlers.getWifiInfo.postMessage(VERSION);
                 window.heredium.getWifiInfo();
                 return false;
             }
