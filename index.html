@@ -6,17 +6,24 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 1"
+        const VERSION = "1.0.0 / 2"
     
         //alert("VERSION : " + VERSION);
+
+        function isAndroid() {
+            return /Android/i.test(navigator.userAgent);
+        }
+        
+        function isiOS() {
+            return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        }
         
         window.onload = function(){
             document.getElementById('settingOpen').onclick = function(e){
-                isAndroid = true
-            if( isiOS ){       
+            if( isiOS() ){       
                window.webkit.messageHandlers.settingOpen.postMessage('');   //빈 스트링 보내주셔야 합니다.
             }   
-            if( isAndroid ){       
+            if( isAndroid() ){       
                window.dongbanmall.settingOpen(''); //빈 스트링 보내주셔야 합니다.
             } 
                 return false;
