@@ -23,7 +23,8 @@
             if( isiOS() ){       
                window.webkit.messageHandlers.settingOpen.postMessage('');   //빈 스트링 보내주셔야 합니다.
             }   
-            if( isAndroid() ){       
+            if( isAndroid() ){
+                alert('window.dongbanmall'+ window.dongbanmall);
                window.dongbanmall.settingOpen(''); //빈 스트링 보내주셔야 합니다.
             } 
                 return false;
