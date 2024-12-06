@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 4"
+        const VERSION = "1.0.0 / 5"
     
         //alert("VERSION : " + VERSION);
 
@@ -24,7 +24,7 @@
                    window.webkit.messageHandlers.settingOpen.postMessage('');   //빈 스트링 보내주셔야 합니다.
                 }   
                 if( isAndroid() ){
-                    alert('window.dongbanmall'+ window.dongbanmall);
+                    alert('window.dongbanmall'+ window.dongbanmall.settingOpen);
                    window.dongbanmall.settingOpen(''); //빈 스트링 보내주셔야 합니다.
                 } 
                 return false;
