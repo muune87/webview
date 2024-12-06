@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 7"
+        const VERSION = "1.0.0 / 8"
     
         //alert("VERSION : " + VERSION);
 
@@ -17,6 +17,17 @@
         function isiOS() {
             return /iPhone|iPad|iPod/i.test(navigator.userAgent);
         }
+
+         window.AutoLogin = function(token){
+             alert('token'+token);
+         } 
+        window.fcmTokenSend = function(token){
+             alert('fcmTokenSend '+token);
+         } 
+           window.notiCountChange  = function(count){
+             alert('notiCountChange  '+count);
+         } 
+        
         
         window.onload = function(){
 
