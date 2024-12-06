@@ -19,35 +19,100 @@
         }
         
         window.onload = function(){
-            document.getElementById('settingOpen').onclick = function(e){
+
+            
+           document.getElementById('tokenSend').onclick = function(e){
                 if( isiOS() ){       
-                   window.webkit.messageHandlers.settingOpen.postMessage('');   //빈 스트링 보내주셔야 합니다.
+                   window.webkit.messageHandlers.tokenSend.postMessage('token');   
                 }   
                 if( isAndroid() ){
-                   window.dongbanmall.settingOpen(''); //빈 스트링 보내주셔야 합니다.
+                   window.dongbanmall.tokenSend('token'); 
+                } 
+                return false;
+            }
+
+            
+           document.getElementById('onChangeAutoLogin').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.onChangeAutoLogin.postMessage('true');   
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.onChangeAutoLogin('true'); 
+                } 
+                return false;
+            }
+            
+            document.getElementById('settingOpen').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.settingOpen.postMessage('');   
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.settingOpen(''); 
                 } 
                 return false;
             }
 
             document.getElementById('notiListOpen').onclick = function(e){
                 if( isiOS() ){       
-                   window.webkit.messageHandlers.settingOpen.notiListOpen('');   //빈 스트링 보내주셔야 합니다.
+                   window.webkit.messageHandlers.notiListOpen.postMessage('');   
                 }   
                 if( isAndroid() ){
-                   window.dongbanmall.notiListOpen(''); //빈 스트링 보내주셔야 합니다.
+                   window.dongbanmall.notiListOpen(''); 
                 } 
                 return false;
             }
 
-           document.getElementById('tokenSend').onclick = function(e){
+            document.getElementById('fcmTokenRequest').onclick = function(e){
                 if( isiOS() ){       
-                   window.webkit.messageHandlers.tokenSend.postMessage('');   //빈 스트링 보내주셔야 합니다.
+                   window.webkit.messageHandlers.fcmTokenRequest.postMessage('');   
                 }   
                 if( isAndroid() ){
-                   window.dongbanmall.tokenSend('token'); //빈 스트링 보내주셔야 합니다.
+                   window.dongbanmall.fcmTokenRequest(''); 
                 } 
                 return false;
             }
+
+            document.getElementById('putMobileAffiliatePath').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.putMobileAffiliatePath.postMessage('putMobileAffiliatePath');   
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.putMobileAffiliatePath('putMobileAffiliatePath'); 
+                } 
+                return false;
+            }
+
+            document.getElementById('showMobileConfirmBox').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.showMobileConfirmBox.postMessage('showMobileConfirmBox');   
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.showMobileConfirmBox('showMobileConfirmBox'); 
+                } 
+                return false;
+            }
+
+            
+            document.getElementById('showMobileAlertBox').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.showMobileAlertBox.postMessage('showMobileAlertBox');   
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.showMobileAlertBox('showMobileAlertBox'); 
+                } 
+                return false;
+            }
+
+            document.getElementById('getNotiCount').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.getNotiCount.postMessage('');   
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.getNotiCount(''); 
+                } 
+                return false;
+            }
+
 
             document.getElementById('reload').onclick = function(e){
                 window.location.reload(true);
@@ -74,14 +139,33 @@
         <h3>reload</h3>
         <input type="button" value="reload" id="reload"/>
 
-        <h3>settingOpen</h3>
-        <input type="button" value="settingOpen" id="settingOpen"/>
-
         <h3>tokenSend</h3>
         <input type="button" value="tokenSend" id="tokenSend"/>
 
+        <h3>onChangeAutoLogin</h3>
+        <input type="button" value="onChangeAutoLogin" id="onChangeAutoLogin"/>
+
+        <h3>settingOpen</h3>
+        <input type="button" value="settingOpen" id="settingOpen"/>
+
         <h3>notiListOpen</h3>
         <input type="button" value="notiListOpen" id="notiListOpen"/>
+
+     
+        <h3>fcmTokenRequest</h3>
+        <input type="button" value="fcmTokenRequest" id="fcmTokenRequest"/>
+
+        <h3>putMobileAffiliatePath</h3>
+        <input type="button" value="putMobileAffiliatePath" id="putMobileAffiliatePath"/>
+
+        <h3>showMobileConfirmBox</h3>
+        <input type="button" value="showMobileConfirmBox" id="showMobileConfirmBox"/>
+        
+        <h3>showMobileAlertBox</h3>
+        <input type="button" value="showMobileAlertBox" id="showMobileAlertBox"/>
+
+        <h3>getNotiCount</h3>
+        <input type="button" value="getNotiCount" id="getNotiCount"/>
 
         <br/><br/>
         
