@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 6"
+        const VERSION = "1.0.0 / 7"
     
         //alert("VERSION : " + VERSION);
 
@@ -24,8 +24,17 @@
                    window.webkit.messageHandlers.settingOpen.postMessage('');   //빈 스트링 보내주셔야 합니다.
                 }   
                 if( isAndroid() ){
-                    alert('window.dongbanmall'+ window.dongbanmall.settingOpen);
                    window.dongbanmall.settingOpen(''); //빈 스트링 보내주셔야 합니다.
+                } 
+                return false;
+            }
+
+            document.getElementById('notiListOpen').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.settingOpen.notiListOpen('');   //빈 스트링 보내주셔야 합니다.
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.notiListOpen(''); //빈 스트링 보내주셔야 합니다.
                 } 
                 return false;
             }
@@ -35,7 +44,6 @@
                    window.webkit.messageHandlers.tokenSend.postMessage('');   //빈 스트링 보내주셔야 합니다.
                 }   
                 if( isAndroid() ){
-                    alert('window.dongbanmall.tokenSend'+ window.dongbanmall.tokenSend);
                    window.dongbanmall.tokenSend('token'); //빈 스트링 보내주셔야 합니다.
                 } 
                 return false;
@@ -69,8 +77,11 @@
         <h3>settingOpen</h3>
         <input type="button" value="settingOpen" id="settingOpen"/>
 
-                <h3>tokenSend</h3>
+        <h3>tokenSend</h3>
         <input type="button" value="tokenSend" id="tokenSend"/>
+
+        <h3>notiListOpen</h3>
+        <input type="button" value="notiListOpen" id="notiListOpen"/>
         
         <a href="https://map.kakao.com/link/to/헤레디움,36.32557832148047,127.43545973867754" class="map-link-btn">
               대전 동구 대전로 735 (인동 74-1)
