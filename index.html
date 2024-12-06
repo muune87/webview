@@ -12,8 +12,13 @@
         
         window.onload = function(){
             document.getElementById('settingOpen').onclick = function(e){
-                window.webkit.messageHandlers.settingOpen.postMessage(VERSION);
-                window.dongbanmall.settingOpen();
+                isAndroid = true
+            if( isiOS ){       
+               window.webkit.messageHandlers.settingOpen.postMessage('');   //빈 스트링 보내주셔야 합니다.
+            }   
+            if( isAndroid ){       
+               window.dongbanmall.settingOpen(''); //빈 스트링 보내주셔야 합니다.
+            } 
                 return false;
             }
             
