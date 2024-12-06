@@ -18,15 +18,19 @@
             return /iPhone|iPad|iPod/i.test(navigator.userAgent);
         }
 
-         window.AutoLogin = function(token){
-             alert('token'+token);
+         window.AutoLogin = function(val){
+             alert('token'+val);
          } 
-        window.fcmTokenSend = function(token){
-             alert('fcmTokenSend '+token);
+        window.fcmTokenSend = function(val){
+             alert('fcmTokenSend '+val);
          } 
-           window.notiCountChange  = function(count){
-             alert('notiCountChange  '+count);
+           window.notiCountChange  = function(val){
+             alert('notiCountChange  '+val);
          } 
+   window.onMobileConfirmBox  = function(val){
+             alert('onMobileConfirmBox  '+val);
+         } 
+        
         
         
         window.onload = function(){
