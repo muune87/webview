@@ -4,52 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="">
-    <title>헤레디움 테스트</title>
+    <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "2.9"
+        const VERSION = "1.0"
     
         //alert("VERSION : " + VERSION);
         
         window.onload = function(){
-            document.getElementById('getWifiInfo').onclick = function(e){
-                window.webkit.messageHandlers.getWifiInfo.postMessage(VERSION);
+            document.getElementById('settingOpen').onclick = function(e){
+                window.webkit.messageHandlers.settingOpen.postMessage(VERSION);
+                window.dongbanmall.settingOpen();
                 return false;
             }
             
-            document.getElementById('getWifiInfo2').onclick = function(e){
-                window.heredium.getWifiInfo();
-                return false;
-            }
-            
+        
             
             let versionInput = document.getElementById("version_input")
             versionInput.value = VERSION;       
         }
         
-        // 네이티브 에서 호출할 메소드
-        function getWifiInfoResult(message){
-            // console.log('getWifiInfoResult : $message');
-            //alert("getWifiInfoResult")
-            let nativeInput = document.getElementById("native_input")
-            nativeInput.value = message;
-            
-            if(message == ""){
-                alert("앱 접근 권한이 없음");
-            }else if(message == "null"){
-                alert("설정된 와이파이가 없음");
-            }else{
-                let result = JSON.parse(message)
-                alert(result.ssid + ", " + result.bssid);
-            }
-        }
-        
-        function permissionDenied(message){
-            // console.log('getWifiInfoResult : $message');
-            //alert("getWifiInfoResult")
-            let nativeInput = document.getElementById("native_input")
-            nativeInput.value = "권한 허용을 하지 않음!!(permissionDenied호출됨)";
-            
-        }
+
     </script>
 </head>
 
@@ -59,13 +33,10 @@
 <input type="file">
         
         <input name="version_input" id="version_input" value=""/>
-  
-         <h3 class="">getWifiInfo(ios)</h3>
-         <input class="btn-indigo" type="submit" name="send" id="getWifiInfo" value="getWifiInfo" />
-        
-        
-         <h3 class="">getWifiInfo(android)</h3>
-         <input class="btn-indigo" type="submit" name="send" id="getWifiInfo2" value="getWifiInfo" />
+
+         <h3 class="">settingOpen</h3>
+         <buton type="button" id="settingOpen">settingOpen</buton>
+
         
         <h2 class="">네이티브에서 입력한 내용</h2>
         <input name="native_input" id="native_input" value="" style="width:100%;"/>
@@ -74,31 +45,7 @@
               대전 동구 대전로 735 (인동 74-1)
             </a>
         <br/>
-          <a href="https://firebase.heredium.art/deeplink/main" class="map-link-btn">
-              앱 메인 이동
-          </a>
-        <br/>
-          <a href="https://firebase.heredium.art/deeplink/ticket" class="map-link-btn">
-              앱 티켓 이동
-          </a>
-        <br/>
-        
-                <a href="intent://gyeonujae.com#Intent;scheme=https;package=com.knou.android.ucampus.mobile;end" target="blank"> 클릭 </a>
-          <a href="com.knou.android.ucampus.mobile://app" class="map-link-btn">
-              유노캠퍼스 이동 테스트
-          </a>
-        <br/>
-        
-                <a href="intent://gyeonujae.com#Intent;scheme=https;package=com.knou.android.ucampus;end" target="blank"> 클릭 </a>
-        <a href="com.knou.android.ucampus://app" class="map-link-btn">
-              유노캠퍼스 이동 테스트2
-          </a>
-        <br/>
-                <a href="intent://gyeonujae.com#Intent;scheme=https;package=com.kakao.talk;end" target="blank"> 클릭 </a>
-        <a href="com.kakao.talk://app" class="map-link-btn">
-              카카오톡 이동 테스트
-          </a>
-        <br/>
+
         
         <br/>
          <a href="https://heredium.art/mypage/purchase/all" target="_blank" class="map-link-btn">
@@ -117,17 +64,6 @@
             작은 압축파일 다운받기
         </a>
         <p></p>
-        <!--<a href="https://muune87.github.io/webview/downloads/dummy.zip" download="dummgy">
-            큰 압축파일 다운받기
-        </a>-->
-
-        <br/>
-          <a href="intent://path/#Intent;scheme=com.gyeonujae;package=com.gyeonujae;" class="map-link-btn">
-              견우재 앱 이동
-          </a>
-<br/>
-        <a href="intent://gyeonujae.com#Intent;scheme=https;package=com.gyeonujae;end" target="blank"> 클릭 </a>
-        
     </div>
 </body>
 </html>
