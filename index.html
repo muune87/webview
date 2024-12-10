@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 9"
+        const VERSION = "1.0.0 / 10"
     
         //alert("VERSION : " + VERSION);
 
@@ -18,8 +18,8 @@
             return /iPhone|iPad|iPod/i.test(navigator.userAgent);
         }
 
-         window.AutoLogin = function(val){
-             console.log('AutoLogin token:'+val);
+         window.AutoLogin = function(val, val2){
+             console.log('AutoLogin token:'+val+":"+val2);
          } 
          window.fcmTokenSend = function(val){
              console.log('fcmTokenSend: '+val);
