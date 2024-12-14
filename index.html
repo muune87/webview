@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 11"
+        const VERSION = "1.0.0 / 12"
     
         //alert("VERSION : " + VERSION);
 
@@ -19,7 +19,7 @@
         }
 
          window.AutoLogin = function(val, val2){
-             console.log('AutoLogin token:'+val+":"+val2);
+             console.log('AutoLogin token:'+val+", flag:"+val2);
          } 
          window.fcmTokenSend = function(val){
              console.log('fcmTokenSend: '+val);
@@ -31,7 +31,7 @@
              console.log('onMobileConfirmBox:  '+val);
          } 
           window.AutoLoginFlagSend = function(val){
-             console.log('AutoLoginFlagSend token:'+val);
+             console.log('AutoLoginFlagSend:'+val);
          } 
         
         
