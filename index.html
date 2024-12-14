@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 10"
+        const VERSION = "1.0.0 / 11"
     
         //alert("VERSION : " + VERSION);
 
@@ -29,6 +29,9 @@
          } 
          window.onMobileConfirmBox  = function(val){
              console.log('onMobileConfirmBox:  '+val);
+         } 
+          window.AutoLoginFlagSend = function(val){
+             console.log('AutoLoginFlagSend token:'+val);
          } 
         
         
@@ -128,6 +131,27 @@
                 return false;
             }
 
+            document.getElementById('AutoLoginRequest').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.AutoLoginRequest.postMessage('');   
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.AutoLoginRequest(''); 
+                } 
+                return false;
+            }
+
+            
+            document.getElementById('AutoLoginFlagRequest').onclick = function(e){
+                if( isiOS() ){       
+                   window.webkit.messageHandlers.AutoLoginFlagRequest.postMessage('');   
+                }   
+                if( isAndroid() ){
+                   window.dongbanmall.AutoLoginFlagRequest(''); 
+                } 
+                return false;
+            }
+
 
             document.getElementById('reload').onclick = function(e){
                 window.location.reload(true);
@@ -181,6 +205,12 @@
 
         <h3>getNotiCount</h3>
         <input type="button" value="getNotiCount" id="getNotiCount"/>
+
+        <h3>AutoLoginRequest</h3>
+        <input type="button" value="AutoLoginRequest" id="AutoLoginRequest"/>
+
+        <h3>AutoLoginFlagRequest</h3>
+        <input type="button" value="AutoLoginFlagRequest" id="AutoLoginFlagRequest"/>
 
         <br/><br/>
         
