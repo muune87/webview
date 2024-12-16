@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 13"
+        const VERSION = "1.0.0 / 14"
     
         //alert("VERSION : " + VERSION);
 
@@ -37,6 +37,30 @@
         
         
         window.onload = function(){
+
+            document.getElementById('app-link').addEventListener('click', function(event) {
+                event.preventDefault(); // 기본 링크 동작 방지
+            
+                var appLink = "https://www.dongbanmall.com/app"; // 딥링크
+            
+                if (isAndroid()) {
+                    // Android에서 앱 링크로 리다이렉션
+                    window.location.href = appLink;
+            
+                    // 2초 후에 앱 스토어로 리다이렉션 (앱이 실행되지 않으면)
+                    setTimeout(function() {
+                        window.location.href = "https://play.google.com/store/apps/details?id=com.kodma.dongbanmall"; // Play Store 링크
+                    }, 2000);
+                } else if (isiOS()) {
+                    // iOS에서 앱 링크로 리다이렉션
+                    window.location.href = appLink;
+            
+                    // 2초 후에 앱 스토어로 리다이렉션 (앱이 실행되지 않으면)
+                    setTimeout(function() {
+                        window.location.href = "https://apps.apple.com/app/6738829721"; // App Store 링크
+                    }, 2000);
+                }
+            });
 
             
            document.getElementById('tokenSend').onclick = function(e){
@@ -174,9 +198,13 @@
         
         <input name="version_input" id="version_input" value=""/>
 
+       
         
         <h3>reload</h3>
         <input type="button" value="reload" id="reload"/>
+
+        <h3>app-link</h3>
+        <input type="button" value="app-link" id="app-link"/>
 
         <h3>tokenSend</h3>
         <input type="button" value="tokenSend" id="tokenSend"/>
