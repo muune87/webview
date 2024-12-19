@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 14"
+        const VERSION = "1.0.0 / 15"
     
         //alert("VERSION : " + VERSION);
 
@@ -37,6 +37,12 @@
         
         
         window.onload = function(){
+
+
+            document.getElementById('hrefTest').onclick = function(e){
+                location.href = "https://www.naver.com";
+            }
+           
 
             document.getElementById('app-link').addEventListener('click', function(event) {
                 event.preventDefault(); // 기본 링크 동작 방지
@@ -240,12 +246,19 @@
         <h3>AutoLoginFlagRequest</h3>
         <input type="button" value="AutoLoginFlagRequest" id="AutoLoginFlagRequest"/>
 
+
+
+        <h3>Location.href 테스트</h3>
+        <input type="button" value="hrefTest" id="hrefTest"/>
+
         <br/><br/>
         
         <a href="https://map.kakao.com/link/to/헤레디움,36.32557832148047,127.43545973867754" class="map-link-btn">
               대전 동구 대전로 735 (인동 74-1)
             </a>
         <br/>
+
+        
 
         
         <br/>
