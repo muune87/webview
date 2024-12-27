@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 16"
+        const VERSION = "1.0.0 / 17"
     
         //alert("VERSION : " + VERSION);
 
@@ -38,7 +38,19 @@
         
         window.onload = function(){
 
+            document.getElementById('alert').onclick = function(e){
+                alert('test');
+            }
 
+            document.getElementById('confirm').onclick = function(e){
+                	if(confirm("제출하시겠습니까?")){
+                		alert("정상적으로 제출되었습니다.");
+                	}else{
+                		alert("제출실패");
+                	}
+            }
+
+            
             document.getElementById('hrefTest').onclick = function(e){
                 location.href = "https://www.naver.com";
             }
@@ -228,7 +240,11 @@
         
         <input name="version_input" id="version_input" value=""/>
 
-       
+        <h3>alert</h3>
+        <input type="button" value="alert" id="alert"/>
+
+        <h3>confirm</h3>
+        <input type="button" value="confirm" id="confirm"/>
         
         <h3>reload</h3>
         <input type="button" value="reload" id="reload"/>
