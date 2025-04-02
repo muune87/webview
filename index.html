@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="">
     <title>웹앱통신 테스트</title>
     <script type="text/javascript">
-        const VERSION = "1.0.0 / 20"
+        const VERSION = "1.0.0 / 21"
     
         //alert("VERSION : " + VERSION);
 
@@ -58,7 +58,7 @@
 
             document.getElementById('app-link').addEventListener('click', function(event) {
                 event.preventDefault(); // 기본 링크 동작 방지
-                document.getElementById("ios-app-link").click(); // 유일하게 허용되는 JS 방식
+                document.getElementById("hidden-app-link").click(); // 유일하게 허용되는 JS 방식
             
                 var appLink = "https://www.dongbanmall.com/app"; // 딥링크
             
